@@ -4,22 +4,25 @@ import Badge from '@material-ui/core/Badge';
 import { Link } from 'react-router-dom';
 import HomeIcon from '../images/homeIcon.png';
 
-const Header = ({cartcount}) => {
+const Header = ({ cartcount }) => {
 
   return (
 
     <Wrapper>
       <nav>
-        <Link to={'/'}><img src={HomeIcon} alt="home outline"/></Link>
+        <NavLink to={'/'}><img src={HomeIcon} alt="home outline" /></NavLink>
         {/* {"ask ratan to help get the icons closer to edge"} */}
-        <Link to={'/electronics'}>Electronics</Link>
-        <Link to={'/jewelery'}>jewelery</Link>
-        <Link to={'/men\'s clothing'}>men's clothing</Link>
-        <Link to={'/women\'s clothing'}>women's clothing</Link>
+        <NavLink to={'/electronics'}>Electronics</NavLink>
+        <NavLink to={'/jewelery'}>jewelery</NavLink>
+        <NavLink to={'/men\'s clothing'}>men's clothing</NavLink>
+        <NavLink to={'/women\'s clothing'}>women's clothing</NavLink>
         {/* {use reat router, look at note} */}
-        <Badge color="secondary" badgeContent={cartcount}>
-          <ShoppingCartIcon />{" "}
-        </Badge>
+
+        <div id="cart-icon">
+          <Badge color="secondary" badgeContent={cartcount}>
+            <ShoppingCartIcon />
+          </Badge>
+        </div>
       </nav>
     </Wrapper>
   )
@@ -38,22 +41,27 @@ const Wrapper = styled.header`
   align-items:center;
   justify-content:center;
   
-  background-color:#894739;
   nav {
-    border:1px solid white;
     width:100%;
     display:flex;
     align-items:center;
-    justify-content:space-around;
-    
-    /* margin:0 30px 0 30px; */
+    justify-content:space-between;
+    padding:0 100px;
   }
-  a{
-    font-family: 'Josefin Sans', sans-serif
-  }
+ 
 
   img{
     width:30px;
     height:30px;
   }
+
+  #cart-icon{
+    margin-right:20px;
+  }
+`
+const NavLink = styled(Link)`
+  font-family: 'Josefin Sans', sans-serif;
+  
+  padding:10px;
+  text-decoration:none;
 `
