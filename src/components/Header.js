@@ -18,13 +18,17 @@ const Header = ({ cartcount }) => {
         <NavLink to={'/women\'s clothing'}>women's clothing</NavLink>
         {/* {use reat router, look at note} */}
 
-        <div id="cart-icon">
-          <Badge color="secondary" badgeContent={cartcount}>
-            <ShoppingCartIcon />
-          </Badge>
-        </div>
+        
+          <div id="cart-icon">
+            <Link to={'/'}>
+            <Badge color="secondary" badgeContent={cartcount}>
+              <ShoppingCartIcon />
+            </Badge>
+            </Link>
+          </div>
+        
       </nav>
-    </Wrapper>
+    </Wrapper >
   )
   // have a nav bar give all categories, when user clicks on category go to that page displaying all
 
@@ -34,7 +38,7 @@ export default Header;
 
 const Wrapper = styled.header`
   
-  border:1px solid red;
+  /* border:1px solid red; */
   height:60px;
   display:flex;
   flex-direction:column;
