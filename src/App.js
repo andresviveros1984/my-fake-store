@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Search from "./components/Search";
 import ElectronicsPage from "./components/ElectronicsPage";
-import Results from "./components/Results";
+import Results from "./components/Home";
 import { Routes, Route, Link } from 'react-router-dom';
 import Jewelery from "./components/Jewelery";
 import MensClothing from "./components/MensClothing";
@@ -20,9 +20,9 @@ const App = () => {
   const url = 'https://fakestoreapi.com/products?limit=12';
   const [results, setResults] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchAllCategories();
-  },[])
+  }, [])
 
   const fetchAllCategories = async () => {
     const response = await fetch(url);
@@ -36,25 +36,31 @@ const App = () => {
 
 
   return (
-    //fetch all caterogores, set to state, and loop throuhg array of categories and create the links in Header
+    //fetch all categories, set to state, and loop throuhg array of categories and create the links in Header
 
     <div className="App">
       {console.log(results)}
       <Header cartcount={cartCount} />
-      <Routes>
-        <Route path='/' element={<Results handleAddToCart={handleAddToCart} results={results}/>} />
-        <Route path={'/men\'s clothing'} element={<MensClothing />} />
-        <Route path={'/jewelery'} element={<Jewelery />} />
-        <Route path='/electronics' element={<ElectronicsPage />} />
-        <Route path={'/women\'s clothing'} element={<WomensPage />} />
-        <Route path={'product details'} element={<ProductDetails/>}/>
-      </Routes>
-
+      <Main>
+        <Routes>
+          <Route path='/' element={<Home handleAddToCart={handleAddToCart} results={results} />} />
+          <Route path={'/men\'s clothing'} element={<MensClothing />} />
+          <Route path={'/jewelery'} element={<Jewelery />} />
+          <Route path='/electronics' element={<ElectronicsPage />} />
+          <Route path={'/women\'s clothing'} element={<WomensPage />} />
+          <Route path={'product details'} element={<ProductDetails />} />
+        </Routes>
+      </Main>
     </div>
   );
 }
 
 export default App;
+
+const Main = styled.main `
+  height:1000px;
+`
+
 
 
 
