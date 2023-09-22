@@ -16,12 +16,13 @@ const Home = ({handleAddToCart,results}) => {
   return(
     <ResultsContainer>
       {console.log(results[Math.floor(Math.random()*results.length)])}
-        {results.map(result =>{
+      <Card handleAddToCart={handleAddToCart} product={results[0]}/>
+        {/* {results.map(result =>{
           return(
             <Card handleAddToCart={handleAddToCart} product={result}/>
             
           )
-        })}
+        })} */}
     </ResultsContainer>
   )
 
@@ -36,5 +37,5 @@ const ResultsContainer = styled.div `
   display:flex;
   flex-wrap:wrap;
   /* justify-content:center; */
-  justify-content:space-around;
+  justify-content:space-between;
 `
