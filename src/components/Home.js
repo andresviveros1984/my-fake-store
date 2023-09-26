@@ -16,13 +16,13 @@ const Home = ({handleAddToCart,results}) => {
   return(
     <ResultsContainer>
       {console.log(results[Math.floor(Math.random()*results.length)])}
-      <Card handleAddToCart={handleAddToCart} product={results[0]}/>
-        {/* {results.map(result =>{
+      {/* <Card handleAddToCart={handleAddToCart} product={results[0]}/> */}
+        {results.map(result =>{
           return(
             <Card handleAddToCart={handleAddToCart} product={result}/>
             
           )
-        })} */}
+        })}
     </ResultsContainer>
   )
 
@@ -31,11 +31,13 @@ const Home = ({handleAddToCart,results}) => {
 export default Home;
 
 const ResultsContainer = styled.div `
-  border:1px solid red;
-  height:100%;
-  width:100vw;
+  
+  /* height:100%; */
+  max-width:100vw;
   display:flex;
   flex-wrap:wrap;
   /* justify-content:center; */
+  /* align-content:center; */
+  
   justify-content:space-between;
 `

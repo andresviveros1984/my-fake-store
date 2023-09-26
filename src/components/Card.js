@@ -5,39 +5,26 @@ import styled from 'styled-components';
 const Card = ({ product, handleAddToCart }) => {
 
 
-
-
   return (
     <ProductCardContainer>
-      <div id="product-title">
-        {/* <h4>{product.title}</h4> */}
-      </div>
-      <div className="image">
-        {/* <img src={product.image} alt="item" /> */}
-      </div>
-      {/* <p>{product.description}</p> */}
-      <button onClick={() => handleAddToCart()}>Add to cart</button>
-      {/* <Link to={`/${product.category}`}>See all {product.category}</Link> */}
-      {/* <Link to={`/${product}`}>See details {product.category}</Link> */}
-      {/* <p>Price: £{product.price}</p> */}
-
+    
+      <div class="container">
       
-        <div class="container">
           <div class="imgBx">
             <img src={product.image} alt={product.category} />
           </div>
           <div class="details">
-            <div class="content">
-              <h2>{product.title}<br/>
+            
+              <h2>{product.title}<br />
                 <span>{product.category.split(' ')[0]}</span>
               </h2>
               <h3>£{product.price}</h3>
-              <button>Add to Basket</button>
-              <SLink  to={`/${product}`}>See More details</SLink >
-            </div>
+              <button onClick={() => handleAddToCart()}>Add to Basket</button>
+              <SLink to={`/${product.id}`}>See more details</SLink >
+            
           </div>
-        </div>
-      
+      </div>
+
     </ProductCardContainer>
   )
 }
@@ -45,8 +32,9 @@ const Card = ({ product, handleAddToCart }) => {
 export default Card;
 
 const ProductCardContainer = styled.div`
-  border:1px solid black;
-  height:300px;
+  /* border:1px solid red; */
+  margin:10px;
+  /* height:300px; */
   width:300px;
   img{
     height:100px;
@@ -64,15 +52,17 @@ const ProductCardContainer = styled.div`
 
 
 .container {
-    border:3px solid red;
-    position: relative;
+    
+    /* position: relative; */
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    
     justify-content: space-between;
     width: 100%;
     height:100%;
     background: #fff;
-    margin: 20px;
+    margin-bottom: 20px;
+    /* padding:10px; */
 }
 
 .container .imgBx {
@@ -81,7 +71,8 @@ const ProductCardContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 100%;
+    /* height: 100%; */
+    
     background: #212121;
     transition: .3s linear;
 }
@@ -107,10 +98,13 @@ const ProductCardContainer = styled.div`
     transition: .9s linear;
 }
 
-.container .details {
-
+ .details {
     width: 50%;
-    height: 100%;
+    /* height: 100%; */
+    display:flex;
+    /* flex-direction:column; */
+    flex-wrap:wrap;
+    justify-content:center;
  
 }
 
@@ -157,6 +151,7 @@ const ProductCardContainer = styled.div`
     font-weight: 600;
     border-radius: 40px;
     float: right;
+    cursor: pointer;
 }
 
 
@@ -164,48 +159,14 @@ const ProductCardContainer = styled.div`
 .content{
   display:flex;
   flex-direction:column;
-  justify-content:space-around;
+  justify-content:space-evenly;
   align-items:center;
-
-  height:100%;
+  
+  /* height:100%; */
   width:100%; 
 }
 
-.product-colors span {
-    width: 26px;
-    height: 26px;
-    top: 7px;
-    margin-right: 12px;
-    left: 10px;
-    border-radius: 50%;
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-}
 
-.black {
-    background: #000;
-}
-
-.red {
-    background: #D5212E;
-}
-
-.orange {
-    background: #F18557;
-}
-
-.product-colors .active:after{
-    content: "";
-    width: 36px;
-    height: 36px;
-    border: 2px solid #000;
-    position: absolute;
-    border-radius: 50%;
-    box-sizing: border-box;
-    left: -5px;
-    top: -5px;
-}
 
 /* responsive */
 @media (max-width: 1080px) {
@@ -236,21 +197,12 @@ const ProductCardContainer = styled.div`
     }
 }
 
-footer {
-    position: fixed;
-    right: 16px;
-    bottom: 12px;
-}
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 12px;
-}
 
 `
 const SLink = styled(Link)`
   /* text-decoration:none; */
   color:black;
-  
+  font-weight:200px;
+  cursor: pointer;
 `

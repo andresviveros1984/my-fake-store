@@ -12,10 +12,11 @@ const Header = ({ cartcount }) => {
       <nav>
         <NavLink to={'/'}><img src={HomeIcon} alt="home outline" /></NavLink>
         {/* {"ask ratan to help get the icons closer to edge"} */}
+
         <NavLink to={'/electronics'}>Electronics</NavLink>
-        <NavLink to={'/jewelery'}>jewelery</NavLink>
-        <NavLink to={'/men\'s clothing'}>men's clothing</NavLink>
-        <NavLink to={'/women\'s clothing'}>women's clothing</NavLink>
+        <NavLink to={'/jewelery'}>Jewelery</NavLink>
+        <NavLink to={'/men\'s clothing'}>Men's clothing</NavLink>
+        <NavLink to={'/women\'s clothing'}>Women's clothing</NavLink>
         {/* {use reat router, look at note} */}
 
         
@@ -36,9 +37,7 @@ const Header = ({ cartcount }) => {
 
 export default Header;
 
-const Wrapper = styled.header`
-  
-  /* border:1px solid red; */
+const Wrapper = styled.header` 
   height:60px;
   display:flex;
   flex-direction:column;
@@ -65,7 +64,9 @@ const Wrapper = styled.header`
 `
 const NavLink = styled(Link)`
   font-family: 'Josefin Sans', sans-serif;
-  
+  color: #444;
   padding:10px;
+  font-size: 1em;
+  font-weight: 800;
   text-decoration:none;
 `

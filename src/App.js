@@ -38,27 +38,28 @@ const App = () => {
   return (
     //fetch all categories, set to state, and loop throuhg array of categories and create the links in Header
 
-    <div className="App">
+    <Main className="App">
       {console.log(results)}
       <Header cartcount={cartCount} />
-      <Main>
+      <main>
         <Routes>
           <Route path='/' element={<Home handleAddToCart={handleAddToCart} results={results} />} />
           <Route path={'/men\'s clothing'} element={<MensClothing />} />
           <Route path={'/jewelery'} element={<Jewelery />} />
           <Route path='/electronics' element={<ElectronicsPage />} />
           <Route path={'/women\'s clothing'} element={<WomensPage />} />
-          <Route path={'product details'} element={<ProductDetails />} />
+          <Route path={'/:id'} element={<ProductDetails />} />
         </Routes>
-      </Main>
-    </div>
+      </main>
+    </Main>
   );
 }
 
 export default App;
 
 const Main = styled.main `
-  height:1000px;
+  /* height:1000px; */
+  max-width:100vw;
 `
 
 
