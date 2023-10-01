@@ -7,21 +7,17 @@ const Card = ({ product, handleAddToCart }) => {
 
   return (
     <ProductCardContainer>
-    
       <div class="container">
-      
           <div class="imgBx">
             <img src={product.image} alt={product.category} />
           </div>
           <div class="details">
-            
               <h2>{product.title}<br />
                 <span>{product.category.split(' ')[0]}</span>
               </h2>
               <h3>£{product.price}</h3>
               <button onClick={() => handleAddToCart()}>Add to Basket</button>
               <SLink to={`/${product.id}`}>See more details</SLink >
-            
           </div>
       </div>
 
@@ -99,6 +95,7 @@ const ProductCardContainer = styled.div`
 }
 
  .details {
+  border:1px solid red;
     width: 50%;
     /* height: 100%; */
     display:flex;

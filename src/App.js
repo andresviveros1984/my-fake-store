@@ -28,6 +28,7 @@ const App = () => {
     const response = await fetch(url);
     const data = await response.json();
     setResults(data);
+    
   }
 
   const handleAddToCart = () => {
@@ -59,7 +60,8 @@ export default App;
 
 const Main = styled.main `
   /* height:1000px; */
-  max-width:100vw;
+  width:100vw;
+  overflow-x:hidden;
 `
 
 

@@ -33,7 +33,8 @@ export default Home;
 const ResultsContainer = styled.div `
   
   /* height:100%; */
-  max-width:100vw;
+  max-width:80vw;
+  margin:0 auto;
   display:flex;
   flex-wrap:wrap;
   /* justify-content:center; */

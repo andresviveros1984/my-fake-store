@@ -10,14 +10,28 @@ const ProductDetails = ({ identifier }) => {
 
 
   const getProductDetails = async () => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    try{
+    const response = await fetch(`https://fakestoreapi.com/producta/${id}`);
+    
     const data = await response.json();
     setProductDetail(data);
+    }
+    catch(error){
+      console.log("failed to get product details", error)
+    }
   }
 
   useEffect(() => {
+    ///use try catch
+    try{
+      console.log("calling func")
+      getProductDetails();
+    }catch(error){
+      console.log("failed to get product detail", error)
+    }
 
-    getProductDetails();
+    //catch error possibly, return product not avaible, display, console log it
+    //exception is type of error, 
   }, [])
 
   return (
