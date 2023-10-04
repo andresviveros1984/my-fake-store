@@ -7,41 +7,38 @@ import styled from 'styled-components';
 const ProductDetails = ({ identifier }) => {
   const { id } = useParams();
   const [productDetail, setProductDetail] = useState({});
+  const [error,setError] = useState(null);
 
 
   const getProductDetails = async () => {
     try{
-    const response = await fetch(`https://fakestoreapi.com/producta/${id}`);
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    console.log(response)
+      if(response.ok !== true){
+        throw new Error("Product Not available to view")
+      }
     
     const data = await response.json();
     setProductDetail(data);
-    }
-    catch(error){
-      console.log("failed to get product details", error)
-    }
+  }catch(error){
+    setError(error.toString())
+  }
+  
+      
+    
   }
 
   useEffect(() => {
-    ///use try catch
-    try{
-      console.log("calling func")
-      getProductDetails();
-    }catch(error){
-      console.log("failed to get product detail", error)
-    }
-
-    //catch error possibly, return product not avaible, display, console log it
-    //exception is type of error, 
+    getProductDetails();
   }, [])
 
   return (
     <div>
-      {console.log(productDetail)}
-      <h1>{productDetail.title}</h1>
-
-
-
+      {console.log(error)}
+      {error ? (<p>{error}</p>) : (<h1>{productDetail.title}</h1>)}
+      {/* <h1>{productDetail.title}</h1> */}
       <ProductDetailsContainer class="container">
+      
         <div class="container">
           <div class="imgBx">
             <img src={productDetail.image} />
