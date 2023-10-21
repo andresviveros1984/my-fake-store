@@ -83,7 +83,7 @@ const CardContainer = styled.div`
     display:flex;
     align-items:center;
     flex-direction:column;
-    /* flex-wrap:wrap; */
+    justify-content:space-evenly;
   }
 
 `
