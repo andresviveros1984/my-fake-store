@@ -33,12 +33,12 @@ export default Home;
 const ResultsContainer = styled.div `
   
   /* height:100%; */
-  max-width:80vw;
-  margin:0 auto;
+  /* max-width:100vw; */
+  /* margin:0 auto; */
   display:flex;
   flex-wrap:wrap;
   /* justify-content:center; */
   /* align-content:center; */
   
-  justify-content:space-between;
+  justify-content:space-evenly;
 `

@@ -22,9 +22,9 @@ const Header = ({ cartcount }) => {
         
           <div id="cart-icon">
             <Link to={'/'}>
-            <Badge color="secondary" badgeContent={cartcount}>
-              <ShoppingCartIcon />
-            </Badge>
+              <Badge color="grey" badgeContent={cartcount}>
+                <ShoppingCartIcon />
+              </Badge>
             </Link>
           </div>
         

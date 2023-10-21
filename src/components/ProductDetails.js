@@ -30,7 +30,7 @@ const ProductDetails = ({ identifier }) => {
 
   useEffect(() => {
     getProductDetails();
-  }, [])
+  },[])
 
   return (
     <div>

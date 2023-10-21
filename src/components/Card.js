@@ -1,64 +1,169 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Card = ({ product, handleAddToCart }) => {
 
 
   return (
-    <ProductCardContainer>
-      <div class="container">
-          <div class="imgBx">
-            <img src={product.image} alt={product.category} />
-          </div>
-          <div class="details">
-              <h2>{product.title}<br />
-                <span>{product.category.split(' ')[0]}</span>
-              </h2>
-              <h3>£{product.price}</h3>
-              <button onClick={() => handleAddToCart()}>Add to Basket</button>
-              <SLink to={`/${product.id}`}>See more details</SLink >
-          </div>
-      </div>
+    // <CardContainer>
+    //     <div className="title">
+    //       <h1>Online Store</h1>
+    //     </div>
+    //     <div class="imgBx">
+    //         <img src={product.image} alt={product.category} />
+    //     </div>
+    //     <div class="details">
+    //         <h2>{product.title}<br />
+    //           <span>{product.category.split(' ')[0]}</span>
+    //         </h2>
+    //         <h3>£{product.price}</h3>
+    //         <button onClick={() => handleAddToCart()}>Add to Basket</button>
+    //         <SLink to={`/${product.id}`}>See more details</SLink >
+    //     </div>
+    // </CardContainer>
 
-    </ProductCardContainer>
+      <CardContainer>
+        <div className="title">
+          <h1>Online Store</h1>
+        </div>
+        <div class="imgBx">
+            <img src={product.image} alt={product.category} />
+        </div>
+        <div class="details">
+            <h2 style={{fontSize:"20px"}}>{product.title}</h2>
+            <p id='category'>{product.category.split(' ')[0]}</p>
+            <h3>£{product.price}</h3>
+            <button onClick={() => handleAddToCart()}>Add to Basket</button>
+            <SLink to={`/${product.id}`}>See more details</SLink >
+        </div>
+      </CardContainer>
   )
 }
 
 export default Card;
 
-const ProductCardContainer = styled.div`
-  /* border:1px solid red; */
+
+const CardContainer = styled.div`
+  position:relative;
+  display:flex;
   margin:10px;
-  /* height:300px; */
+  width:400px;
+  box-shadow:10px 10px 10px grey;
+  .imgBx{
+    height:140px;
+    width:140px;
+    position:absolute;
+    top:55px;
+    left:60px;
+  }
+  img{
+    height:140px;
+    width:140px;
+  }
+
+   .title{
+    background-color:black;
+    width:50%;
+    display:flex;
+    justify-content:center;   
+  }
+
+ .title h1{
+    font-size:1.5em;
+    color: white;
+    opacity: 0.2;
+    position:relative;
+    top:-15px;
+ }
+
+
+ .details{
+    width:50%;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    /* flex-wrap:wrap; */
+  }
+
+`
+
+
+// const CardContainer = styled.div`
+//   border:2px solid red;
+//   display:flex;
+//   width:400px;
+//   margin:10px;
+//   .title{
+//     border:1px solid black;
+//     background-color:black;
+//     width:50%;
+//     display:flex;
+//     justify-content:center;
+   
+//   }
+
+//   .title h1{
+//     font-size:1.5em;
+//     color: white;
+//     opacity: 0.2;
+//     position:relative;
+//     top:-15px;
+//   }
+
+//   /* .imgBx{
+//     border:3px solid purple;
+    
+//   } */
+
+//    img{
+//     width:100px;
+    
+//     position:relative;
+    // top:30px;
+    // right:40px;
+//   }
+
+  // .details{
+  //   width:50%;
+  //   border:1px solid green;
+  //   display:flex;
+  //   /* flex-wrap:wrap; */
+  //   flex-direction:column;
+  // }
+
+//   .details h2{
+//     font-size:1em;
+//   }
+
+// `
+
+
+
+
+
+
+
+
+const ProductCardContainer = styled.div`
+
+  margin:10px;
+  
   width:300px;
   img{
     height:100px;
-    /* width:200px */
+    
   }
-
-  
-
-
-  //////
-
 
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,800&display=swap');
 
-
-
 .container {
-    
-    /* position: relative; */
     display: flex;
-    /* flex-wrap: wrap; */
-    
     justify-content: space-between;
     width: 100%;
     height:100%;
     background: #fff;
     margin-bottom: 20px;
-    /* padding:10px; */
 }
 
 .container .imgBx {
@@ -67,8 +172,6 @@ const ProductCardContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
-    /* height: 100%; */
-    
     background: #212121;
     transition: .3s linear;
 }
@@ -78,7 +181,6 @@ const ProductCardContainer = styled.div`
     position: absolute;
     top: 10px;
     left: 20px;
-    /* color: hsl(0, 9.090909090909067%, 97.84313725490196%); */
     color:white;
     opacity: 0.2;
     font-size: 1em;
@@ -88,8 +190,6 @@ const ProductCardContainer = styled.div`
 .container .imgBx img {
     position: relative;
     width: 100px;
-    /* height:300px; */
-    /* transform: rotate(-30deg); */
     left: 50px;
     transition: .9s linear;
 }
@@ -97,9 +197,7 @@ const ProductCardContainer = styled.div`
  .details {
   border:1px solid red;
     width: 50%;
-    /* height: 100%; */
     display:flex;
-    /* flex-direction:column; */
     flex-wrap:wrap;
     justify-content:center;
  
@@ -140,11 +238,8 @@ const ProductCardContainer = styled.div`
     color: #fff;
     border: none;
     outline: none;
-    /* padding: 10px 10px; */
     margin-top: 15px;
-    /* font-size: 14px; */
     letter-spacing: 1px;
-    /* text-transform: uppercase; */
     font-weight: 600;
     border-radius: 40px;
     float: right;
@@ -158,14 +253,9 @@ const ProductCardContainer = styled.div`
   flex-direction:column;
   justify-content:space-evenly;
   align-items:center;
-  
-  /* height:100%; */
   width:100%; 
 }
 
-
-
-/* responsive */
 @media (max-width: 1080px) {
     .container {
         height: auto;
@@ -198,7 +288,6 @@ const ProductCardContainer = styled.div`
 
 `
 const SLink = styled(Link)`
-  /* text-decoration:none; */
   color:black;
   font-weight:200px;
   cursor: pointer;
