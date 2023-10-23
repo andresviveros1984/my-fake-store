@@ -11,7 +11,6 @@ const Header = ({ cartcount }) => {
     <Wrapper>
       <nav>
         <NavLink to={'/'}><img src={HomeIcon} alt="home outline" /></NavLink>
-        {/* {"ask ratan to help get the icons closer to edge"} */}
 
         <NavLink to={'/electronics'}>Electronics</NavLink>
         <NavLink to={'/jewelery'}>Jewelery</NavLink>
@@ -22,7 +21,7 @@ const Header = ({ cartcount }) => {
         
           <div id="cart-icon">
             <Link to={'/'}>
-              <Badge color="grey" badgeContent={cartcount}>
+              <Badge color="red" badgeContent={cartcount}>
                 <ShoppingCartIcon />
               </Badge>
             </Link>
@@ -43,7 +42,6 @@ const Wrapper = styled.header`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  
   nav {
     width:100%;
     display:flex;
