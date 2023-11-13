@@ -6,23 +6,6 @@ const Card = ({ product, handleAddToCart }) => {
 
 
   return (
-    // <CardContainer>
-    //     <div className="title">
-    //       <h1>Online Store</h1>
-    //     </div>
-    //     <div class="imgBx">
-    //         <img src={product.image} alt={product.category} />
-    //     </div>
-    //     <div class="details">
-    //         <h2>{product.title}<br />
-    //           <span>{product.category.split(' ')[0]}</span>
-    //         </h2>
-    //         <h3>£{product.price}</h3>
-    //         <button onClick={() => handleAddToCart()}>Add to Basket</button>
-    //         <SLink to={`/${product.id}`}>See more details</SLink >
-    //     </div>
-    // </CardContainer>
-
       <CardContainer>
         <div className="title">
           <h1>Online Store</h1>
@@ -31,10 +14,10 @@ const Card = ({ product, handleAddToCart }) => {
             <img src={product.image} alt={product.category} />
         </div>
         <div class="details">
-            <h2 style={{fontSize:"20px"}}>{product.title}</h2>
+            <h2 style={{fontSize:"15px"}}>{product.title}</h2>
             <p id='category'>{product.category.split(' ')[0]}</p>
             <h3>£{product.price}</h3>
-            <button onClick={() => handleAddToCart()}>Add to Basket</button>
+            {/* <button onClick={() => handleAddToCart()}>Add to Basket</button> */}
             <SLink to={`/${product.id}`}>See more details</SLink >
         </div>
       </CardContainer>
@@ -81,8 +64,9 @@ const CardContainer = styled.div`
  .details{
     width:50%;
     display:flex;
-    align-items:center;
+    // align-items:center;
     flex-direction:column;
+    align-items:center;
     justify-content:space-evenly;
   }
 
@@ -288,7 +272,21 @@ const ProductCardContainer = styled.div`
 
 `
 const SLink = styled(Link)`
-  color:black;
-  font-weight:200px;
+  // color:black;
+  // font-weight:200px;
   cursor: pointer;
+
+  background: #000;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 40px;
+    text-decoration:none;
 `

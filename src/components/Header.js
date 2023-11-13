@@ -20,11 +20,11 @@ const Header = ({ cartcount }) => {
 
         
           <div id="cart-icon">
-            <Link to={'/'}>
-              <Badge color="red" badgeContent={cartcount}>
+            <CartLink to={'/'}>
+              <Badge color="secondary" badgeContent={cartcount}>
                 <ShoppingCartIcon />
               </Badge>
-            </Link>
+            </CartLink>
           </div>
         
       </nav>
@@ -37,6 +37,7 @@ const Header = ({ cartcount }) => {
 export default Header;
 
 const Wrapper = styled.header` 
+ 
   height:60px;
   display:flex;
   flex-direction:column;
@@ -67,4 +68,8 @@ const NavLink = styled(Link)`
   font-size: 1em;
   font-weight: 800;
   text-decoration:none;
+`
+
+const CartLink = styled(Link)`
+  color: #444;
 `

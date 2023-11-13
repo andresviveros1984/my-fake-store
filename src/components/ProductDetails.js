@@ -13,7 +13,6 @@ const ProductDetails = ({ identifier }) => {
   const getProductDetails = async () => {
     try{
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    console.log(response)
       if(response.ok !== true){
         throw new Error("Product Not available to view")
       }
@@ -35,7 +34,7 @@ const ProductDetails = ({ identifier }) => {
   return (
     <div>
       {console.log(error)}
-      {error ? (<p>{error}</p>) : (<h1>{productDetail.title}</h1>)}
+      {error && (<p>{error}</p>)}
       {/* <h1>{productDetail.title}</h1> */}
       <ProductDetailsContainer class="container">
       
@@ -45,7 +44,8 @@ const ProductDetails = ({ identifier }) => {
           </div>
           <div class="details">
             <div class="content">
-              <h2>{productDetail.title}<br />
+              <h2>{productDetail.title}
+              <br />
                 <span>{productDetail.category}</span>
               </h2>
               <p>
@@ -107,9 +107,10 @@ justify-content:center;
 
 .container .imgBx img {
     position: relative;
-    width: 400px;
-    transform: rotate(-30deg);
-    left: -50px;
+    width: 300px;
+    // transform: rotate(-30deg);
+    left: 75px;
+    
     transition: .9s linear;
 }
 
