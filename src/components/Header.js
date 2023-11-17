@@ -37,7 +37,10 @@ const Header = ({ cartcount }) => {
 export default Header;
 
 const Wrapper = styled.header` 
- 
+  z-index:20;
+  position:fixed;
+  background-color:white;
+  width:100vw;
   height:60px;
   display:flex;
   flex-direction:column;

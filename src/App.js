@@ -27,8 +27,8 @@ const App = () => {
   const fetchAllCategories = async () => {
     const response = await fetch(url);
     const data = await response.json();
+    // [Math.floor(Math.random()*results.length)]
     setResults(data);
-    
   }
 
   const handleAddToCart = () => {
@@ -40,7 +40,7 @@ const App = () => {
     //fetch all categories, set to state, and loop throuhg array of categories and create the links in Header
 
     <Main className="App">
-      {console.log(results)}
+      {console.log(results[Math.floor(Math.random()*results.length)])}
       <Header cartcount={cartCount} />
       <main>
         <Routes>
@@ -62,6 +62,9 @@ const Main = styled.main `
   /* height:1000px; */
   width:100vw;
   overflow-x:hidden;
+  main{
+    margin-top:60px;
+  }
 `
 
 

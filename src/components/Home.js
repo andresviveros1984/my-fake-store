@@ -7,20 +7,22 @@ const Home = ({handleAddToCart,results}) => {
   //create new variable for new results array
   // loop through results array and place elements at random index
 
-  
-  function shuffleresults(results){
-    const newResultsArr = [];
+  const [randonResults,setRandomResults] = useState([])
+
+  function ranResults(results){
+    const randResults = results[Math.floor(Math.random()*results.length)];
+    setRandomResults(randResults)
   }
 
-
+  // console.log(results[Math.floor(Math.random()*results.length)],"R")
   return(
     <ResultsContainer>
-      {console.log(results[Math.floor(Math.random()*results.length)])}
+      {/* {console.log(results[0])} */}
       {/* <Card handleAddToCart={handleAddToCart} product={results[0]}/> */}
         {results.map(result =>{
           return(
             <Card handleAddToCart={handleAddToCart} product={result}/>
-            
+            // <Card handleAddToCart={handleAddToCart} product={ranResults}/>
           )
         })}
     </ResultsContainer>
